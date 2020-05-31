@@ -7,7 +7,7 @@ import CreateUserService from './CreateUserService';
 import AuthenticateUserService from './AuthenticateUserService';
 
 describe('AuthenticateUser', () => {
-  it('should be able to Authenticate a new user', async () => {
+  it('should be able to authenticate', async () => {
     const fakeUsersRepository = new FakeUsersRepository();
     const fakeHashProvider = new FakeHashProvider();
 
@@ -33,5 +33,47 @@ describe('AuthenticateUser', () => {
     });
 
     expect(response).toHaveProperty('token');
+    expect(response.user).toEqual(user);
+  });
+
+  it('should not be able to authenticate with non existing user', async () => {
+    const fakeUsersRepository = new FakeUsersRepository();
+    const fakeHashProvider = new FakeHashProvider();
+
+    const authenticateAppointment = new AuthenticateUserService(
+      fakeUsersRepository,
+      fakeHashProvider,
+    );
+
+    expect(authenticateAppointment.execute({
+      email: 'spaceman@email.com',
+      password: '123456'
+    })).rejects.toBeInstanceOf(AppError);
+  });
+
+  it('should not be able to authenticate with a wrong password', async () => {
+    const fakeUsersRepository = new FakeUsersRepository();
+    const fakeHashProvider = new FakeHashProvider();
+
+    const createUser = new CreateUserService(
+      fakeUsersRepository,
+      fakeHashProvider,
+    );
+
+    const authenticateAppointment = new AuthenticateUserService(
+      fakeUsersRepository,
+      fakeHashProvider,
+    );
+
+    await createUser.execute({
+      name: 'Spaceman',
+      email: 'spaceman@email.com',
+      password: '123456'
+    })
+
+    expect(authenticateAppointment.execute({
+      email: 'spaceman@email.com',
+      password: 'wrong-password'
+    })).rejects.toBeInstanceOf(AppError);
   });
 });

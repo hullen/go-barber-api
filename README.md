@@ -1,5 +1,5 @@
-![](/assets/logo.png)
-# 🚀 GoBarber API
+![](/assets/keep-coding.png)
+# ✂ GoBarber API
 
 ## 🔗 Table of contents
 - [Features](#features)
@@ -8,10 +8,11 @@
 - [Status codes](#status)
 - [License](#license)
 
-## 💼 Features <a name="features"/>
+## 🧠 Features <a name="features"/>
 
 - Appointments CRUD
 - Users CRUD
+- Unitary tests
 
 This is one application from GoStack Bootcamp, organized by [Rocketseat](https://rocketseat.com.br/).
 
@@ -26,7 +27,7 @@ So, run this command in terminal:
 git clone https://github.com/fernandogatto/go-barber-api.git
 ```
 
-## 📭 Starting <a name="starting"/>
+## 🚀 Starting <a name="starting"/>
 
 In project, open ```package.json```file and in final of line ```dev:server``` change the ```--host``` to your IP machine.
 
@@ -37,6 +38,12 @@ yarn typeorm
 
 // Start the server
 yarn dev:server
+```
+
+## 🏃 Run tests
+
+```
+yarn test
 ```
 
 ## ⚙ Status codes <a name="status"/>

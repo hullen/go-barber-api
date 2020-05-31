@@ -22,7 +22,7 @@ This project uses [Node.js](https://nodejs.org/en/), [Express](https://expressjs
 
 First of all, it is important that you have installed [Node.js](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com/).
 
-So, run this command in terminal:
+So, run this command in terminal to clone the project via HTTPS:
 ```
 git clone https://github.com/fernandogatto/go-barber-api.git
 ```

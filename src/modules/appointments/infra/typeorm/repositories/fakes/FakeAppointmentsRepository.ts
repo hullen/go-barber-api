@@ -4,7 +4,7 @@ import { isEqual } from 'date-fns';
 import IAppointmentsRepository from '@modules/appointments/interfaces/repositories/IAppointmentsRepository';
 import ICreateAppointmentDTO from '@modules/appointments/interfaces/dtos/ICreateAppointmentDTO';
 
-import Appointment from '../../infra/typeorm/entities/Appoitment';
+import Appointment from '../../entities/Appoitment';
 
 class AppointmentsRepository implements IAppointmentsRepository {
   private appointments: Appointment[] = [];

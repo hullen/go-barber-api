@@ -1,7 +1,7 @@
 import AppError from '@shared/errors/AppError';
 
 import FakeUsersRepository from '../infra/typeorm/repositories/fakes/FakeUsersRepository';
-import FakeStorageProvider from '@shared/providers/StorageProvidere/fakes/FakeStorageAvatar';
+import FakeStorageProvider from '@shared/providers/StorageProvider/fakes/FakeStorageAvatar';
 
 import UpdateUserAvatarService from './UpdateUserAvatarService';
 
@@ -38,7 +38,7 @@ describe('UpdateUserAvatar', () => {
       fakeStorageProvider,
     );
 
-    expect(updateUserAvatar.execute({
+    await expect(updateUserAvatar.execute({
       userId: 'unauthenticated-user',
       avatarFilename: 'avatar.jpg',
     })).rejects.toBeInstanceOf(AppError);

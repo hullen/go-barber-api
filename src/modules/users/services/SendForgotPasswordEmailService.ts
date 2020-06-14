@@ -32,9 +32,12 @@ class SendForgotPasswordEmailService {
       throw new AppError('User not found');
     }
 
-    await this.userTokensRepository.generate(user.id);
+    const { token } = await this.userTokensRepository.generate(user.id);
 
-    this.mailProvider.sendMail(email, 'Pedido de recuperação da senha');
+    await this.mailProvider.sendMail(
+      email,
+      `Pedido de recuperação da senha: ${token}`,
+    );
   }
 }
 

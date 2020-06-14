@@ -18,15 +18,15 @@ class ResetPasswordService {
     @inject('UsersRepository')
     private usersRepository: IUsersRepository,
 
-    @inject('TokensRepository')
-    private tokensRepository: IUserTokensRepository,
+    @inject('UserTokensRepository')
+    private userTokensRepository: IUserTokensRepository,
 
     @inject('HashProvider')
     private hashProvider: IHashProvider,
   ) {}
 
   public async execute({ token, password }: IRequest): Promise<void> {
-    const userToken = await this.tokensRepository.findByToken(token);
+    const userToken = await this.userTokensRepository.findByToken(token);
 
     if(!userToken) {
       throw new AppError('User token not found');

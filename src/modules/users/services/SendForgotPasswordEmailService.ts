@@ -4,7 +4,7 @@ import IUsersRepository from '../interfaces/repositories/IUsersRepository';
 import IUserTokensRepository from '../interfaces/repositories/IUserTokensRepository';
 import IMailProvider from '@shared/providers/MailProvider/interfaces/IMailProvider';
 
-import User from '../infra/typeorm/entities/User';
+// import User from '../infra/typeorm/entities/User';
 
 import AppError from '@shared/errors/AppError';
 

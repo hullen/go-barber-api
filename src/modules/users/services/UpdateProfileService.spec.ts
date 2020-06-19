@@ -42,8 +42,8 @@ describe('UpdateProfile', () => {
     await expect(
       updateProfile.execute({
         user_id: 'non-existing-user',
-        name: '',
-        email: '',
+        name: 'Test',
+        email: 'test@email.com',
       })
     ).rejects.toBeInstanceOf(AppError);
   });
@@ -117,7 +117,7 @@ describe('UpdateProfile', () => {
         user_id: user.id,
         name: 'Spaceman from Mars',
         email: 'mars@email.com',
-        old_password: '',
+        old_password: 'wrong-old-password',
         password: '123123',
       })
     ).rejects.toBeInstanceOf(AppError);

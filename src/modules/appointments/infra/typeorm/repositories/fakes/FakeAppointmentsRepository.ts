@@ -12,7 +12,7 @@ import Appointment from '../../entities/Appoitment';
 class AppointmentsRepository implements IAppointmentsRepository {
   private appointments: Appointment[] = [];
 
-  public async create({ provider_id, date }: ICreateAppointmentDTO):
+  public async create({ provider_id, user_id, date }: ICreateAppointmentDTO):
     Promise<Appointment> {
       const appointment = new Appointment();
 
@@ -20,11 +20,8 @@ class AppointmentsRepository implements IAppointmentsRepository {
         id: uuid(),
         date,
         provider_id,
+        user_id,
       });
-
-      // appointment.id = uuid();
-      // appointment.date = date;
-      // appointment.provider_id = provider_id;
 
       this.appointments.push(appointment);
 

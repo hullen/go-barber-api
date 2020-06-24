@@ -3,7 +3,6 @@ import { injectable, inject } from 'tsyringe';
 import IUsersRepository from '@modules/users/interfaces/repositories/IUsersRepository';
 import IAppointmentsRepository from '../interfaces/repositories/IAppointmentsRepository';
 
-import User from '@modules/users/infra/typeorm/entities/User';
 import { getDate, getDaysInMonth } from 'date-fns';
 
 interface IRequest {
